@@ -46,6 +46,12 @@
               Shrey Shah<sup>2</sup>,
             </span>
             <span class="author-block">
+              Saumit Vedula<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Tingrui Zhang<sup>2</sup>,
+            </span>
+            <span class="author-block">
               <a href="https://jiangwenpl.github.io/">Wen Jiang</a><sup>1</sup>,
             </span>
             <span class="author-block">
@@ -205,11 +211,20 @@
             multi-view consistency of the detections of each object. 
             In order to efficiently search for the target object, we formulate an objective function 
             balancing exploration of unobserved or uncertain regions with exploitation of scene semantic information. 
-            We evaluate HELIOS on the OVMM benchmark in the Habitat simulator, a pick and place benchmark in which 
-            perception is challenging due to large and complex scenes with comparatively small target objects. 
-            HELIOS achieves state-of-the-art results on OVMM. As our approach is zero-shot, HELIOS can also transfer 
-            to the real world without requiring additional data, as we illustrate by demonstrating it in a 
-            real world office environment on a Spot robot.
+            Language-specified mobile manipulation tasks in novel environments simultaneously face challenges interacting with a scene which is only partially observed,
+            grounding semantic information from language instructions to the partially observed scene, and actively updating knowledge of the scene with new observations. To address these challenges, we propose HELIOS, a hierarchical scene
+            representation and associated search objective. We construct 2D maps containing
+            the relevant semantic and occupancy information for navigation while simultaneously actively constructing 3D Gaussian representations of task-relevant objects. We fuse observations across this multi-layered representation while explicitly modeling the multi-view consistency of the detections of each object using
+            the Dirichlet distribution. Planning is formulated as a search problem over our
+            hierarchical representation. We formulate an objective that jointly considers (i)
+            exploration of unobserved or uncertain regions of the environment and (ii) information gathering from additional observations of candidate objects. This objective integrates frontier-based exploration with the expected information gain
+            associated with improving semantic consistency of object detections. We evaluate HELIOS on the OVMM benchmark in the Habitat simulator, a pick and place
+            benchmark in which perception is challenging due to large and complex scenes
+            with comparatively small target objects. HELIOS achieves state-of-the-art results
+            on OVMM. We demonstrate HELIOS performing language specified pick and
+            place in a real world office environment on a Spot robot. Our method leverages
+            pretrained VLMs to achieve these results in simulation and the real world without
+            any task specific training.
           </p>
         </div>
       </div>
@@ -243,15 +258,19 @@
             would be impossible without nerfies since it would require going through a wall.
           </p> -->
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/helios_cup_with_visualizations.mp4"
+            <source src="./static/videos/helios2_cup.mp4"
                     type="video/mp4">
           </video>
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/helios_hand_sanitizer_with_visualizations.mp4"
+            <source src="./static/videos/helios2_drink.mp4"
                     type="video/mp4">
           </video>
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/helios_bowl_with_visualizations.mp4"
+            <source src="./static/videos/helios2_bowl_vis.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/helios2_bowl_not_vis.mp4"
                     type="video/mp4">
           </video>
         </div>
